@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barbería Store HN · Reserva tu cita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="pole" aria-hidden="true"></div>
+
+  <main class="layout">
+    <header class="brand">
+      <p class="eyebrow">Est. Honduras</p>
+      <h1>Barbería<br /><span>Store HN</span></h1>
+      <p class="tagline">Reserva tu silla en menos de un minuto. Corte limpio, sin filas.</p>
+      <ul class="info">
+        <li><strong>Lun – Sáb</strong> 9:00 a.m. – 7:00 p.m.</li>
+        <li><strong>Domingo</strong> Cerrado</li>
+      </ul>
+    </header>
+
+    <section class="panel" aria-labelledby="titulo-form">
+      <form id="form-cita" novalidate>
+        <h2 id="titulo-form">Agenda tu cita</h2>
+
+        <fieldset>
+          <legend><span class="step">01</span> Servicio</legend>
+          <div class="chips" id="servicios"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step">02</span> Barbero</legend>
+          <div class="chips" id="barberos"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step">03</span> Fecha y hora</legend>
+          <label class="field">
+            <span>Fecha</span>
+            <input type="date" id="fecha" name="fecha" required />
+          </label>
+          <div class="slots" id="horas" aria-live="polite">
+            <p class="hint">Elige una fecha para ver horarios disponibles.</p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="step">04</span> Tus datos</legend>
+          <div class="grid">
+            <label class="field">
+              <span>Nombre completo</span>
+              <input type="text" name="nombre" autocomplete="name" required minlength="2" maxlength="100" placeholder="Ej. Luis Vásquez" />
+            </label>
+            <label class="field">
+              <span>Teléfono / WhatsApp</span>
+              <input type="tel" name="telefono" autocomplete="tel" required placeholder="+504 9999-9999" />
+            </label>
+          </div>
+          <label class="field">
+            <span>Notas (opcional)</span>
+            <textarea name="notas" rows="2" maxlength="500" placeholder="Estilo que buscas, referencias…"></textarea>
+          </label>
+        </fieldset>
+
+        <p class="error" id="error" role="alert"></p>
+        <button type="submit" id="enviar">Confirmar cita</button>
+      </form>
+
+      <div class="success" id="exito" hidden>
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>¡Cita reservada!</h2>
+        <p id="resumen"></p>
+        <button type="button" id="otra" class="ghost">Reservar otra cita</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
